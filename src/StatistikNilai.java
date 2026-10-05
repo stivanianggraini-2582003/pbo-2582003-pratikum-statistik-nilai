@@ -32,6 +32,40 @@ public class StatistikNilai {
 
         System.out.println("Nilai tersimpan : " + daftar);
 
+        if (daftar.isEmpty()) {
+            System.out.println("Tidak ada nilai yang tersimpan.");
+            input.close();
+            return;
+        }
+
+        int total = 0;
+
+        for (int nilai : daftar) {
+            total += nilai;
+        }
+
+        double rataRata = (double) total / daftar.size();
+
+        System.out.printf("Rata-rata : %.2f%n", rataRata);
+
+        int tertinggi = daftar.get(0);
+        int terendah = daftar.get(0);
+
+        for (int i = 1; i < daftar.size(); i++) {
+            int nilai = daftar.get(i);
+
+            if (nilai > tertinggi) {
+                tertinggi = nilai;
+            }
+
+            if (nilai < terendah) {
+                terendah = nilai;
+            }
+        }
+
+        System.out.println("Tertinggi : " + tertinggi);
+        System.out.println("Terendah  : " + terendah);
+
         input.close();
     }
 }
